@@ -1,4 +1,4 @@
-package my.exercise.designmode.templatemethod;
+package my.exercise.designmode.template;
 
 public class Plus extends AbstractCalculator{
 

@@ -44,7 +44,7 @@ public class SyncSingleton {
      * JVM能够帮我们保证instance只被创建一次，并且会保证把赋值给instance的内存初始化完毕，这样我们就不用担心上面的问题
      * 此处使用一个内部类来维护单例 */
 	private static class SingletonFactory {
-		private static SyncSingleton instance = new SyncSingleton();
+		private static final SyncSingleton instance = new SyncSingleton();
 	}
 
 	/* 获取实例 */
