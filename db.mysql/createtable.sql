@@ -14,3 +14,16 @@ CREATE TABLE `testbylilu`
     KEY `idx_deleted_speed` (`deleted`, `speed`),
     UNIQUE KEY `uk_deleted_create_user_id` (`deleted`,`create_user_id`)
 ) ENGINE=INNODB COMMENT='LILU用于TEST';
+
+-- 修改字段
+ALTER TABLE `t_teacher` MODIFY COLUMN `note` VARCHAR(1000)  DEFAULT '' COMMENT '备注';
+
+-- 增加字段
+ALTER TABLE `zq_pull_message` ADD COLUMN `link_url` varchar(255)  NOT NULL DEFAULT '' COMMENT '连接路径';
+
+-- 删除索引
+DROP INDEX `weixin_no` ON `t_navy`;
+
+-- 新增索引
+CREATE UNIQUE INDEX `uk_weixinno_del` ON `t_navy`(`weixin_no`,`del`) USING BTREE;
+CREATE INDEX `from_room_wxid_index` ON `zq_message`(`wxid_from`,`room_wxid`) USING BTREE;
